@@ -14,16 +14,6 @@ The goals / steps of this project are the following:
 * Warp the detected lane boundaries back onto the original image.
 * Output visual display of the lane boundaries and numerical estimation of lane curvature and vehicle position.
 
-[//]: # (Image References)
-
-[image1]: ./examples/undistort_output.png "Undistorted"
-[image2]: ./test_images/test1.jpg "Road Transformed"
-[image3]: ./examples/binary_combo_example.jpg "Binary Example"
-[image4]: ./examples/warped_straight_lines.jpg "Warp Example"
-[image5]: ./examples/color_fit_lines.jpg "Fit Visual"
-[image6]: ./examples/example_output.jpg "Output"
-[video1]: ./project_video.mp4 "Video"
-
 ## [Rubric](https://review.udacity.com/#!/rubrics/571/view) Points
 ###Here I will consider the rubric points individually and describe how I addressed each point in my implementation.  
 
@@ -63,55 +53,31 @@ The code for this step is contained in the code cells 5-7 of the  notebook.
 In code cell 5, i define a set of convenience functions that i found useful via trail and error.  
 These include yellw_white masking/ several types of sobel transforms and a few HLS transforms as well.
 
-In code cell 6, i run the undistorted image (previously made available) through these transforms and compute a combined image. I then run the combined image through a cv2 getPerspectiveTransform and finally output both the combined and the perspectiveTransformed image.
+In code cell 6, i run the undistorted image (previously made available) through these transforms and compute a combined image. I then run the combined image through a cv2 getPerspectiveTransform followed by a cv2.warpPerspective(). This yields a binary_birdseye which is then made available to the remainder of the workbook. Finally i display both the combined and the binary_birdseye image.
 
 In code cell 7, i process the undistorted image through various sobel transforms and display the results to get some insight into the transformed images.
 
 ####3. Describe how (and identify where in your code) you performed a perspective transform and provide an example of a transformed image.
 
-The code for my perspective transform includes a function called `warper()`, which appears in lines 1 through 8 in the file `example.py` (output_images/examples/example.py) (or, for example, in the 3rd code cell of the IPython notebook).  The `warper()` function takes as inputs an image (`img`), as well as source (`src`) and destination (`dst`) points.  I chose the hardcode the source and destination points in the following manner:
+The code for this step is contained in the code cell 6 of the  notebook.
 
-```
-src = np.float32(
-    [[(img_size[0] / 2) - 55, img_size[1] / 2 + 100],
-    [((img_size[0] / 6) - 10), img_size[1]],
-    [(img_size[0] * 5 / 6) + 60, img_size[1]],
-    [(img_size[0] / 2 + 55), img_size[1] / 2 + 100]])
-dst = np.float32(
-    [[(img_size[0] / 4), 0],
-    [(img_size[0] / 4), img_size[1]],
-    [(img_size[0] * 3 / 4), img_size[1]],
-    [(img_size[0] * 3 / 4), 0]])
-
-```
-This resulted in the following source and destination points:
-
-| Source        | Destination   | 
-|:-------------:|:-------------:| 
-| 585, 460      | 320, 0        | 
-| 203, 720      | 320, 720      |
-| 1127, 720     | 960, 720      |
-| 695, 460      | 960, 0        |
-
-I verified that my perspective transform was working as expected by drawing the `src` and `dst` points onto a test image and its warped counterpart to verify that the lines appear parallel in the warped image.
-
-![alt text][image4]
+As described previously, I ran the undistorted image through several transforms and generate a combined image. I then run the combined image through a cv2 getPerspectiveTransform followed by a cv2.warpPerspective(). This yields a binary_birdseye which is then made available to the remainder of the workbook. Finally i display both the combined and the binary_birdseye image.
 
 ####4. Describe how (and identify where in your code) you identified lane-line pixels and fit their positions with a polynomial?
 
-Then I did some other stuff and fit my lane lines with a 2nd order polynomial kinda like this:
+The code for this step is contained in the code cell 8 and 13 of the  notebook.
 
-![alt text][image5]
+In code cell 8, i am essentially researching/ getting a feel for the np2.polyfit() function.  
+In code cell 13, i sample the relevant part (bottom histogram) of the image in a series of small rectangles and then calculate the lane line polynomials. In retrospect, i should have created a separate helper function for this, rather than the lenghty step n cell 13.
 
 ####5. Describe how (and identify where in your code) you calculated the radius of curvature of the lane and the position of the vehicle with respect to center.
 
-I did this in lines # through # in my code in `my_other_file.py`
+The code for this step is contained in the code cell 12 of the  notebook.  
+In addition to computing the curvature and the position of vehicle (offset), it also creates the lane onto a blank image, then does an inverse perspectiveTransform , then paints the region on to the udistorted image, then adds annotations on the undistorted image and finally returns the updated image with annotations.
 
 ####6. Provide an example image of your result plotted back down onto the road such that the lane area is identified clearly.
 
-I implemented this step in lines # through # in my code in `yet_another_file.py` in the function `map_lane()`.  Here is an example of my result on a test image:
-
-![alt text][image6]
+The code for this step is contained in the code cell 15 of the  notebook.  
 
 ---
 
@@ -119,7 +85,8 @@ I implemented this step in lines # through # in my code in `yet_another_file.py`
 
 ####1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (wobbly lines are ok but no catastrophic failures that would cause the car to drive off the road!).
 
-Here's a [link to my video result](./project_video.mp4)
+Here's a [link to my video result](./movie.mp4) and the youtube link is this - https://www.youtube.com/watch?v=kGhNtidvWso.  
+Sometimes when the youtube initially loads , some frames appear to be black, however that appears to be only a temporary issue as the physical video has no such 'drop offs' and the issue can't be consistently reproduced in the browser.
 
 ---
 
@@ -127,5 +94,4 @@ Here's a [link to my video result](./project_video.mp4)
 
 ####1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
 
-Here I'll talk about the approach I took, what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further.  
-
+The video is still wobbly in some places and in some other places the left edge appears to separate from the left lane. I will reserach why this is being caused.
