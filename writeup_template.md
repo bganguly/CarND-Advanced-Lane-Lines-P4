@@ -34,12 +34,14 @@ The goals / steps of this project are the following:
 
 This is the required README.  
 All code cells mentioned here are in the IPython notebook located in "advanced-lane-finding.ipynb".  
-For brevity, i will just refer to the IPython notebook as simply 'notebook'. Where needed cells have embedded images in them, and i will skip mentioning that repeatedly in the discussion of rubric points below.
+For brevity, i will just refer to the IPython notebook as simply 'notebook'.  
+Where needed, cells have embedded images in them, and i will skip mentioning that repeatedly in the discussion of rubric points below.
 ###Camera Calibration
 
 ####1. Briefly state how you computed the camera matrix and distortion coefficients. Provide an example of a distortion corrected calibration image.
 
-The code for this step is contained in the code cell 2 and 3 of the  notebook.  
+The code for this step is contained in the code cell 2 and 3 of the  notebook.
+
 In code cell 2 - I start by preparing "object points", which will be the (x, y, z) coordinates of the chessboard corners in the world. Here I am assuming the chessboard is fixed on the (x, y) plane at z=0, such that the object points are the same for each calibration image.  Thus, `objp` is just a replicated array of coordinates, and `objpoints` will be appended with a copy of it every time I successfully detect all chessboard corners in a test image.  `imgpoints` will be appended with the (x, y) pixel position of each of the corners in the image plane with each successful chessboard detection.  
 
 In code cell 3 - I then used the output `objpoints` and `imgpoints` to compute the camera calibration and distortion coefficients using the `cv2.calibrateCamera()` function.  I applied this distortion correction to the test image using the `cv2.undistort()`. 
@@ -49,11 +51,15 @@ At the end of this step the camera calibration cooefficients are made available 
 ###Pipeline (single images)
 
 ####1. Provide an example of a distortion-corrected image.
+
 The code for this step is contained in the code cell 4 of the  notebook.  
 We simply call cv2.undistort() with appropriate distorted image and calibration coefficients.
 
 ####2. Describe how (and identify where in your code) you used color transforms, gradients or other methods to create a thresholded binary image.  Provide an example of a binary image result.
-I used a combination of color and gradient thresholds to generate a binary image (thresholding steps at lines # through # in `another_file.py`).  Here's an example of my output for this step.  (note: this is not actually from one of the test images)
+
+The code for this step is contained in the code cells 5-7 of the  notebook.
+
+In code cell 5, i define a set of convenience functions that i found useful via trail and error.  
 
 ![alt text][image3]
 
