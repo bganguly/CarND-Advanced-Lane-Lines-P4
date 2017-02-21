@@ -32,7 +32,7 @@ The goals / steps of this project are the following:
 
 ####1. Provide a Writeup / README that includes all the rubric points and how you addressed each one.
 
-This is the required README. All code cells mentioned here are in the IPython notebook located in "advanced-lane-finding.ipynb". For brevity, i will just refer to the IPython notebook as simply 'notebook'. Where needed cells have embedded images in them, and i will skip mentioning that repeatedly in the discussion of rubric points below.
+This is the required README.   All code cells mentioned here are in the IPython notebook located in "advanced-lane-finding.ipynb". For brevity, i will just refer to the IPython notebook as simply 'notebook'. Where needed cells have embedded images in them, and i will skip mentioning that repeatedly in the discussion of rubric points below.
 ###Camera Calibration
 
 ####1. Briefly state how you computed the camera matrix and distortion coefficients. Provide an example of a distortion corrected calibration image.
