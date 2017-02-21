@@ -53,15 +53,19 @@ At the end of this step the camera calibration cooefficients are made available 
 ####1. Provide an example of a distortion-corrected image.
 
 The code for this step is contained in the code cell 4 of the  notebook.  
-We simply call cv2.undistort() with appropriate distorted image and calibration coefficients.
+We simply call cv2.undistort() with appropriate distorted image and calibration coefficients.  
+The undistorted image is then made available to the remainder of the workbook.
 
 ####2. Describe how (and identify where in your code) you used color transforms, gradients or other methods to create a thresholded binary image.  Provide an example of a binary image result.
 
 The code for this step is contained in the code cells 5-7 of the  notebook.
 
 In code cell 5, i define a set of convenience functions that i found useful via trail and error.  
+These include yellw_white masking/ several types of sobel transforms and a few HLS transforms as well.
 
-![alt text][image3]
+In code cell 6, i run the undistorted image (previously made available) through these transforms and compute a combined image. I then run the combined image through a cv2 getPerspectiveTransform and finally output both the combined and the perspectiveTransformed image.
+
+In code cell 7, i process the undistorted image through various sobel transforms and display the results to get some insight into the transformed images.
 
 ####3. Describe how (and identify where in your code) you performed a perspective transform and provide an example of a transformed image.
 
