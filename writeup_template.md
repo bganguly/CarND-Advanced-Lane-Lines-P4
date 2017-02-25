@@ -23,11 +23,7 @@ The goals / steps of this project are the following:
 [image5]: ./output_for_readme/processed_sobelx_sobely_image.jpg "sobelx and sobely outputs"
 [image6]: ./output_for_readme/processed_sobelmag_sobeldir_image.jpg "sobelmag and sobeldir outputs"
 [image7]: ./output_for_readme/sample_lane_line_pixels.jpg "sample_lane_line_pixels"
-[image8]: ./output_for_readme/processed_Frames_frame006.jpg "frame006"
-[image9]: ./output_for_readme/processed_sobelmag_sobeldir_image.jpg "sobelmag and sobeldir outputs"
-[image10]: ./output_for_readme/processed_sobelmag_sobeldir_image.jpg "sobelmag and sobeldir outputs"
-[image11]: ./output_for_readme/processed_sobelmag_sobeldir_image.jpg "sobelmag and sobeldir outputs"
-
+[image8]: ./output_for_readme/processed_Frames_frame0006.jpg "frame006"
 [video1]: ./project_video.mp4 "Video"
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/571/view) Points
