@@ -18,10 +18,16 @@ The goals / steps of this project are the following:
 
 [image1]: ./output_for_readme/calibration_uncalibrated_image.jpg "Uncalibrated"
 [image2]: ./output_for_readme/calibration_calibrated_image.jpg "Calibrated"
-[image3]: ./examples/binary_combo_example.jpg "Binary Example"
-[image4]: ./examples/warped_straight_lines.jpg "Warp Example"
-[image5]: ./examples/color_fit_lines.jpg "Fit Visual"
-[image6]: ./examples/example_output.jpg "Output"
+[image3]: ./output_for_readme/sample_distorted_undistorted_image.jpg "Sample image before/after distortion correction"
+[image4]: ./output_for_readme/processed_combined_binary_birdseye_image.jpg "binary and birds eye view outputs"
+[image5]: ./output_for_readme/processed_sobelx_sobely_image.jpg "sobelx and sobely outputs"
+[image6]: ./output_for_readme/processed_sobelmag_sobeldir_image.jpg "sobelmag and sobeldir outputs"
+[image7]: ./output_for_readme/sample_lane_line_pixels.jpg "sample_lane_line_pixels"
+[image8]: ./output_for_readme/processed_Frames_frame006.jpg "frame006"
+[image9]: ./output_for_readme/processed_sobelmag_sobeldir_image.jpg "sobelmag and sobeldir outputs"
+[image10]: ./output_for_readme/processed_sobelmag_sobeldir_image.jpg "sobelmag and sobeldir outputs"
+[image11]: ./output_for_readme/processed_sobelmag_sobeldir_image.jpg "sobelmag and sobeldir outputs"
+
 [video1]: ./project_video.mp4 "Video"
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/571/view) Points
@@ -57,6 +63,8 @@ At the end of this step the camera calibration cooefficients are made available 
 The code for this step is contained in the code cell 4 of the  notebook.  
 We simply call cv2.undistort() with appropriate distorted image and calibration coefficients.  
 The undistorted image is then made available to the remainder of the workbook.
+![alt text][image3]  
+
 
 ####2. Describe how (and identify where in your code) you used color transforms, gradients or other methods to create a thresholded binary image.  Provide an example of a binary image result.
 
@@ -66,21 +74,29 @@ In code cell 5, i define a set of convenience functions that i found useful via 
 These include yellw_white masking/ several types of sobel transforms and a few HLS transforms as well.
 
 In code cell 6, i run the undistorted image (previously made available) through these transforms and compute a combined image. I then run the combined image through a cv2 getPerspectiveTransform followed by a cv2.warpPerspective(). This yields a binary_birdseye which is then made available to the remainder of the workbook. Finally i display both the combined and the binary_birdseye image.
+![alt text][image4]  
+
 
 In code cell 7, i process the undistorted image through various sobel transforms and display the results to get some insight into the transformed images.
+![alt text][image5]  
+![alt text][image6]  
+
 
 ####3. Describe how (and identify where in your code) you performed a perspective transform and provide an example of a transformed image.
 
 The code for this step is contained in the code cell 6 of the  notebook.
 
 As described previously, I ran the undistorted image through several transforms and generate a combined image. I then run the combined image through a cv2 getPerspectiveTransform followed by a cv2.warpPerspective(). This yields a binary_birdseye which is then made available to the remainder of the workbook. Finally i display both the combined and the binary_birdseye image.
+![alt text][image4]  
 
 ####4. Describe how (and identify where in your code) you identified lane-line pixels and fit their positions with a polynomial?
 
 The code for this step is contained in the code cell 8 and 13 of the  notebook.
 
-In code cell 8, i am essentially researching/ getting a feel for the np2.polyfit() function.  
-In code cell 13, i sample the relevant part (bottom histogram) of the image in a series of small rectangles and then calculate the lane line polynomials. In retrospect, i should have created a separate helper function for this, rather than the lenghty step n cell 13.
+In code cell 8, i am essentially researching/ getting a feel for the np2.polyfit() function. 
+![alt text][image7]  
+
+In code cell 13, i sample the relevant part (bottom histogram) of the image in a series of small rectangles and then calculate the lane line polynomials. In retrospect, i should have created a separate helper function for this, rather than the lenghty step in cell 13.
 
 ####5. Describe how (and identify where in your code) you calculated the radius of curvature of the lane and the position of the vehicle with respect to center.
 
@@ -90,6 +106,7 @@ In addition to computing the curvature and the position of vehicle (offset), it 
 ####6. Provide an example image of your result plotted back down onto the road such that the lane area is identified clearly.
 
 The code for this step is contained in the code cell 15 of the  notebook.  
+![alt text][image8]  
 
 ---
 
@@ -106,4 +123,4 @@ Sometimes when the youtube initially loads , some frames appear to be black, how
 
 ####1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
 
-The video is still wobbly in some places and in some other places the left edge appears to separate from the left lane. I will reserach why this is being caused.
+In the result video, I have had to fall back on using x/y values from the prior frame , when it looks like the computed curvature or the start of the bottom left of the area being painted is significantly differebt than prior frames. Perhaps these could be fixed by varying the thresholding parameters somehow.
