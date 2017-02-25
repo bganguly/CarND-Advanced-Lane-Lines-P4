@@ -17,7 +17,7 @@ The goals / steps of this project are the following:
 [//]: # (Image References)
 
 [image1]: ./output_for_readme/calibration_uncalibrated_image.jpg "Uncalibrated"
-[image1]: ./output_for_readme/calibration_calibrated_image.jpg "Calibrated"
+[image2]: ./output_for_readme/calibration_calibrated_image.jpg "Calibrated"
 [image3]: ./examples/binary_combo_example.jpg "Binary Example"
 [image4]: ./examples/warped_straight_lines.jpg "Warp Example"
 [image5]: ./examples/color_fit_lines.jpg "Fit Visual"
@@ -46,7 +46,9 @@ In code cell 2 - I start by preparing "object points", which will be the (x, y, 
 In code cell 3 - I then used the output `objpoints` and `imgpoints` to compute the camera calibration and distortion coefficients using the `cv2.calibrateCamera()` function.  I applied this distortion correction to the test image using the `cv2.undistort()`. 
 
 At the end of this step the camera calibration cooefficients are made available to the remainder of the notebook.  
+
 ![alt text][image1]  
+
 ![alt text][image2]
 
 
