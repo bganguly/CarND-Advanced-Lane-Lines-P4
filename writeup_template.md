@@ -25,7 +25,6 @@ The goals / steps of this project are the following:
 This is the required README.  
 All code cells mentioned here are in the IPython notebook located in "advanced-lane-finding.ipynb".  
 For brevity, i will just refer to the IPython notebook as simply 'notebook'.  
-Where needed, cells have embedded images in them, and i will skip mentioning that repeatedly in the discussion of rubric points below.
 ###Camera Calibration
 
 ####1. Briefly state how you computed the camera matrix and distortion coefficients. Provide an example of a distortion corrected calibration image.
@@ -37,6 +36,8 @@ In code cell 2 - I start by preparing "object points", which will be the (x, y, 
 In code cell 3 - I then used the output `objpoints` and `imgpoints` to compute the camera calibration and distortion coefficients using the `cv2.calibrateCamera()` function.  I applied this distortion correction to the test image using the `cv2.undistort()`. 
 
 At the end of this step the camera calibration cooefficients are made available to the remainder of the notebook.
+!(https://drive.google.com/open?id=0B9vOjB65N3QkLVJXMW8yWmZPUm8 "Uncalibrated image")
+
 
 ###Pipeline (single images)
 
