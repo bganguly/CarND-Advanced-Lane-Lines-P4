@@ -110,7 +110,7 @@ The code for this step is contained in the code cell 15 of the  notebook.
 
 ####1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (wobbly lines are ok but no catastrophic failures that would cause the car to drive off the road!).
 
-Here's a [link to my video result](./movie.mp4) and the youtube link is this - https://www.youtube.com/watch?v=kGhNtidvWso.  
+Here's a [link to my video result](./movie.mp4) and the youtube link is this - https://youtu.be/nNV-hBz0wq0 .  
 Sometimes when the youtube initially loads , some frames appear to be black, however that appears to be only a temporary issue as the physical video has no such 'drop offs' and the issue can't be consistently reproduced in the browser.
 
 ---
