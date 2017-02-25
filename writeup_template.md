@@ -36,7 +36,7 @@ In code cell 2 - I start by preparing "object points", which will be the (x, y, 
 In code cell 3 - I then used the output `objpoints` and `imgpoints` to compute the camera calibration and distortion coefficients using the `cv2.calibrateCamera()` function.  I applied this distortion correction to the test image using the `cv2.undistort()`. 
 
 At the end of this step the camera calibration cooefficients are made available to the remainder of the notebook.
-"Uncalibrated image" https://drive.google.com/open?id=0B9vOjB65N3QkLVJXMW8yWmZPUm8
+"Uncalibrated image" https://github.com/bganguly/advanced-lane-lines/blob/master/output_for_readme/calibration_uncalibrated_image.jpg
 
 
 ###Pipeline (single images)
