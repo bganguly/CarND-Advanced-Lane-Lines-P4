@@ -14,6 +14,16 @@ The goals / steps of this project are the following:
 * Warp the detected lane boundaries back onto the original image.
 * Output visual display of the lane boundaries and numerical estimation of lane curvature and vehicle position.
 
+[//]: # (Image References)
+
+[image1]: ./output_for_readme/calibration_uncalibrated_image.jpg "Uncalibrated"
+[image2]: ./test_images/test1.jpg "Road Transformed"
+[image3]: ./examples/binary_combo_example.jpg "Binary Example"
+[image4]: ./examples/warped_straight_lines.jpg "Warp Example"
+[image5]: ./examples/color_fit_lines.jpg "Fit Visual"
+[image6]: ./examples/example_output.jpg "Output"
+[video1]: ./project_video.mp4 "Video"
+
 ## [Rubric](https://review.udacity.com/#!/rubrics/571/view) Points
 ###Here I will consider the rubric points individually and describe how I addressed each point in my implementation.  
 
@@ -37,6 +47,7 @@ In code cell 3 - I then used the output `objpoints` and `imgpoints` to compute t
 
 At the end of this step the camera calibration cooefficients are made available to the remainder of the notebook.
 "Uncalibrated image" https://github.com/bganguly/advanced-lane-lines/blob/master/output_for_readme/calibration_uncalibrated_image.jpg
+![alt text][image1]
 
 
 ###Pipeline (single images)
